@@ -1,0 +1,17 @@
+.mainBody {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background: #232427;
+}
+
+.title {
+    width: 100%;
+    font-size: 3rem;
+    font-weight: lighter;
+    color: #fff;
+    padding-left: 20px;
+    align-self: flex-start;
+}
