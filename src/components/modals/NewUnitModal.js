@@ -7,7 +7,7 @@ function NewUnitModal(props) {
   
   function handleSearch(event) {
     // console.log("searching for " + event.target.value);
-    const searchTarget = event.target.value;
+    const searchTarget = event.target.value.toUpperCase();
     let matchedUnits = [];
     if (searchTarget.length > 2) {
       // find all units that start with eth
@@ -17,7 +17,20 @@ function NewUnitModal(props) {
         }
       }
     }
-    setUnits(matchedUnits);
+
+    // remove all units that are already in the current semester:
+    matchedUnits = matchedUnits.filter((u) => {
+      for (let unit of props.plan.semesters.find(sem => sem.name === props.details.semesterName).units) {
+        if (unit === u.name) {
+          return false
+        }
+      }
+      return true
+    })
+
+    
+    
+      setUnits(matchedUnits);
   }
 
   return (
@@ -25,12 +38,11 @@ function NewUnitModal(props) {
       <h3>Add Unit:</h3>
 
       {/* Search div: */}
-      <div className={classes.form__group + " " + classes.from__field}>
+      <div className={classes.form__group}>
         <input
           type="input"
           className={classes.form__field}
           placeholder="Unit Name..."
-          id="name"
           onChange={handleSearch}
           required
         />
@@ -43,8 +55,10 @@ function NewUnitModal(props) {
             <Unit
               unitName={unit.name}
               unitDesc={unit.desc}
-              addUnit={() =>
+              addUnit={() =>{
                 props.addUnitFunc(props.details.planName, props.details.semesterName, unit.name)
+                props.close()
+              }
               }
             />
           );

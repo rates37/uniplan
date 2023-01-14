@@ -7,9 +7,10 @@ function Semester(props) {
     props.removeUnit(props.planName, props.semesterName, unitName);
   }
 
+  /*
   function addUnit(unitName) {
     props.addUnit(props.planName, props.semesterName, unitName);
-  }
+  } // */
 
   function removeSemester() {
     props.removeSemester(props.planName, props.semesterName);
@@ -27,6 +28,7 @@ function Semester(props) {
           number += 1;
           return (
             <Unit
+            key={unit}
               unitName={unit}
               unitDesc={unitDesc(unit)}
               unitNumber={number.toString().length < 2 ? "0" + number.toString() : number.toString()}
@@ -43,15 +45,15 @@ function Semester(props) {
       <div className={classes.container}>
         <h2 className={classes.myh2}>{props.semesterName}</h2>
 
-
-        <button onClick={props.newUnitDisplay} className={classes.plusButton} title={"Remove Semester"}>
+        <div className={classes.buttonDiv}>
+        <button onClick={props.newUnitDisplay} className={classes.plusButton} title={"Add Unit"}>
         +
         </button>
-      <div> .  .</div>
+      <div> ⠀ ⠀</div>
         <button onClick={removeSemester} className={classes.bigButton} title={"Remove Semester"}>
         x
         </button>
-
+        </div>
         {makeUnitCards()}
 
       </div>

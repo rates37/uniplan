@@ -16,4 +16,24 @@
     
   }
 
+  .addButton {
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    background: lime;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    margin-top: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+    height: 2.5rem;
+    font-weight:bolder
+  }
   
+  .addButton:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+  }
