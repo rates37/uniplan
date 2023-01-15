@@ -7,9 +7,12 @@ function OptionsModal(props) {
       <h3>View Options:</h3>
 
       <div>
-        <p style={{
-  fontSize: '1.5rem',
-  fontWeight: 'lighter'}}>
+        <p
+          style={{
+            fontSize: "1.5rem",
+            fontWeight: "lighter",
+          }}
+        >
           Toggle Unit Names:{" "}
           <button
             className={classes.addButton}
