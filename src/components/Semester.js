@@ -20,7 +20,7 @@ function Semester(props) {
     return props.unitsList.find(u => u.name === unitName).desc
   }
 
-  function makeUnitCards() {
+  function makeUnitCards(displayUnitNames) {
     let number = 0;
     return (
       <>
@@ -30,7 +30,7 @@ function Semester(props) {
             <Unit
             key={unit}
               unitName={unit}
-              unitDesc={unitDesc(unit)}
+              unitDesc={displayUnitNames ? unitDesc(unit) : ""}
               unitNumber={number.toString().length < 2 ? "0" + number.toString() : number.toString()}
               removeUnit={() => removeUnit(unit)}
             />
@@ -54,7 +54,7 @@ function Semester(props) {
         x
         </button>
         </div>
-        {makeUnitCards()}
+        {makeUnitCards(props.displayUnitNames)}
 
       </div>
     </>

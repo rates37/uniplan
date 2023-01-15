@@ -54,7 +54,7 @@ function NewUnitModal(props) {
           return (
             <Unit
               unitName={unit.name}
-              unitDesc={unit.desc}
+              unitDesc={props.displayUnitNames ? unit.desc : ""}
               addUnit={() =>{
                 props.addUnitFunc(props.details.planName, props.details.semesterName, unit.name)
                 props.close()

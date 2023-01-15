@@ -6,6 +6,7 @@ import Backdrop from "./components/modals/Backdrop";
 import NewUnitModal from "./components/modals/NewUnitModal";
 import NewSemesterModal from "./components/modals/NewSemesterModal";
 import units from "./units.json";
+import OptionsModal from "./components/modals/OptionsModal";
 
 // let const_plans_template = [
 //   {
@@ -61,8 +62,10 @@ function App() {
   let [plans, setPlans] = useState(const_plans);
   let [newUnitModalDisplay, setNewUnitModalDisplay] = useState(false);
   let [newSemesterModalDisplay, setNewSemesterModalDisplay] = useState(false);
+  let [optionsModalDisplay, setOptionsModalDisplay] = useState(false);
   let [semName, setSemName] = useState("");
   let [planName, setPlanName] = useState(plans[0].name);
+  let [displayUnitNames, setDisplayUnitNames] = useState(true);
 
   // function to delete a semester from the plan:
   function removeSemester(planName, semesterName) {
@@ -153,7 +156,7 @@ function App() {
   return (
     <>
       <div className={classes.mainBody}>
-        <Header addSemester={() => setNewSemesterModalDisplay(true)} />
+        <Header addSemester={() => setNewSemesterModalDisplay(true)} displayOptions={() => setOptionsModalDisplay(true)}/>
       {/* // TODO: Add a plan selector so user can make multiple plans */}
         {/* code for when multiple plans are implemented: */}
         {/* {plans.map((plan) => {
@@ -200,6 +203,7 @@ function App() {
                 setPlanName(plans[0].name);
                 setSemName(sem.name);
               }}
+              displayUnitNames={displayUnitNames}
             />
           );
         })}
@@ -213,6 +217,7 @@ function App() {
             addUnitFunc={addUnit}
             plan={plans.filter((p) => p.name === planName)[0]}
             close={() => setNewUnitModalDisplay(false)}
+            displayUnitNames={displayUnitNames}
           />
         </>
       ) : newSemesterModalDisplay ? (
@@ -222,6 +227,13 @@ function App() {
             plan={plans.filter((p) => p.name === planName)[0]}
             addSemester={(semName) => addSemester(planName, semName)}
             close={() => setNewSemesterModalDisplay(false)}
+          />
+        </>
+      ) : optionsModalDisplay ? (
+        <>
+          <Backdrop onClick={() => setOptionsModalDisplay(false)} />
+          <OptionsModal
+          unitNameToggle={() => {displayUnitNames ? setDisplayUnitNames(false) : setDisplayUnitNames(true)}}
           />
         </>
       ) : null}
