@@ -27,6 +27,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 - [ ] Add support for multiple different plans
 - [ ] Light mode
+- [ ] Allow plans to be exported to xslx files
 - [ ] Pre/co-requisite checking
 - [ ] Prohibition checking
 
