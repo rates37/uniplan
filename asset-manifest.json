@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/uniplan/static/css/main.1b87a1d7.css",
+    "main.js": "/uniplan/static/js/main.d081481b.js",
+    "index.html": "/uniplan/index.html",
+    "main.1b87a1d7.css.map": "/uniplan/static/css/main.1b87a1d7.css.map",
+    "main.d081481b.js.map": "/uniplan/static/js/main.d081481b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b87a1d7.css",
+    "static/js/main.d081481b.js"
+  ]
+}
