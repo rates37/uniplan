@@ -4,7 +4,7 @@ UniPlan is a simple tool to help Monash University students plan the structure o
 
 # Getting Started
 
-To use this tool, head over to this link (not yet implemented).
+To use this tool, head over to [this link](https://rates37.github.io/uniplan/).
 
 Alternatively, you can run it locally using any of the following commands:
 
